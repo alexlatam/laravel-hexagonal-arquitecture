@@ -2,6 +2,8 @@
 
 namespace Src\Example\User\Application\Find;
 
+use Src\Example\User\Domain\Exceptions\UserException;
+
 final class UserFindAllUseCase
 {
     private $repository;
@@ -10,9 +12,11 @@ final class UserFindAllUseCase
         // $this->var = $var;
     }
 
-    public function __invoke(): array {
+    public function __invoke(): array
+    {
+        throw new UserException('Esta es una excepcion personalizada', 500);
         return [
-            "Hola planeta desde el caso de uso"
+            "saludo" => "Hola planeta desde el caso de uso"
         ];
     }
 }
