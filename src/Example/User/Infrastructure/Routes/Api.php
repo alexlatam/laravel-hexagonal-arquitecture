@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Src\Example\User\Infrastructure\Controllers\UserFindAllController;
 
-Route::get('/', function () {
-    return 'Hello World';
-});
+Route::get('/', UserFindAllController::class);
