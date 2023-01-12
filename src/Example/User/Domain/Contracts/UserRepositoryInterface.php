@@ -9,5 +9,5 @@ interface UserRepositoryInterface
 {
     public function findById(UserId $id): ?array;
     public function findAll(): array;
-    // public function delete(int $id): User;
+    public function deleteById(UserId $id): bool;
 }

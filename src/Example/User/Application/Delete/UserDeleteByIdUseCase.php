@@ -1,9 +1,10 @@
 <?php
 
-namespace Src\Example\User\Application\Find;
+namespace Src\Example\User\Application\Delete;
 
 use Src\Example\User\Domain\Contracts\UserRepositoryInterface;
-use Src\Example\User\Infrastructure\Repositories\Eloquent\User;
+use Src\Example\User\Domain\Exceptions\UserException;
+use Src\Example\User\Domain\ValueObject\UserId;
 
 final class UserDeleteByIdUseCase
 {
@@ -13,8 +14,18 @@ final class UserDeleteByIdUseCase
         $this->repository = $repository;
     }
 
-    public function __invoke(int $id): User
+    public function __invoke(int $id): array
     {
-        return $this->repository->delete($id);
+        $response = $this->repository->deleteById(new UserId($id));
+        if (!$response) return $this->exception($id);
+        return [
+            'message' => 'User deleted successfully',
+            'status' => 200
+        ];
+    }
+
+    private function exception(int $id): void
+    {
+        throw new UserException("User with id {$id} not found", 404);
     }
 }

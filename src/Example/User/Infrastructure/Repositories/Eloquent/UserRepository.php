@@ -24,4 +24,9 @@ final class UserRepository implements UserRepositoryInterface
         $response = $this->model->find($id->value());
         return ($response) ? $response->toArray() : null;
     }
+
+    public function deleteById(UserId $id): bool
+    {
+        return $this->model->where('id', $id->value())->delete();
+    }
 }
