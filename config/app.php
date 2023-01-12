@@ -197,6 +197,8 @@ return [
 
         // USER ROUTE SERVICE PROVIDER (EXAMPLE)
         Src\Example\User\Infrastructure\Services\RouteServiceProvider::class,
+        // DEPENDENCY SERVICE PROVIDER (EXAMPLE\USER)
+        Src\Example\User\Infrastructure\Services\DependencyServiceProvider::class,
 
     ],
 

@@ -3,8 +3,9 @@
 namespace Src\Example\User\Application\Find;
 
 use Src\Example\User\Domain\Contracts\UserRepositoryInterface;
+use Src\Example\User\Infrastructure\Repositories\Eloquent\User;
 
-final class UserFindAllUseCase
+final class UserDeleteByIdUseCase
 {
     private $repository;
 
@@ -12,8 +13,8 @@ final class UserFindAllUseCase
         $this->repository = $repository;
     }
 
-    public function __invoke(): array
+    public function __invoke(int $id): User
     {
-        return $this->repository->findAll();
+        return $this->repository->delete($id);
     }
 }
