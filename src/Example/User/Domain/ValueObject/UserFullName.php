@@ -1,5 +1,7 @@
 <?php
 
+namespace Src\Example\User\Domain\ValueObject;
+
 final class UserFullName
 {
     private array $value;
