@@ -3,7 +3,7 @@
 namespace Src\Example\User\Infrastructure\Controllers;
 
 use Src\Example\User\Application\Find\UseFindByIdUseCase;
-use Symfony\Component\HttpFoundation\Request;
+use Illuminate\Http\Request;
 
 final class UserFindByIdController
 {
